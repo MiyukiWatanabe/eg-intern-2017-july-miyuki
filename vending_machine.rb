@@ -101,12 +101,12 @@ class Vendingmachine
     coins = [10,50,100,500,1000]
 
     if coins.include?(money)
-      total_money = money.to_i + total_money.to_i
-      puts "#{total_money}円が投入されました。"
+      total_money = money.to_i + total_money.to_i #total_money += money.to_i
+      puts "#{total_money}円が投入されました。" #money_operationで表示するのでmoneyの方がいい?
     else
       puts "投入されたコインは受け付けられません。投入された#{money}円を払い戻しします。現在の投入金額は#{total_money}円です。"
     end
-    money = 0
+    money = 0  #standbyでmoney = 0 にするので不要?
     money_operation(total_money,money)
   end
 
@@ -122,7 +122,7 @@ class Vendingmachine
     elsif money_choice == "3"
       self.buy_operation(total_money,money)
     else
-      puts "FACK!"
+      puts "FACK!"  #スペルミス
       money_operation(total_money,money)
     end
   end
@@ -136,4 +136,3 @@ class Vendingmachine
 
   self.standby(total_money,money)
 end
-
